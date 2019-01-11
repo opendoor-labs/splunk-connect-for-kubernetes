@@ -82,6 +82,13 @@ data:
       jq '.record.source = "namespace:\(env.MY_NAMESPACE)/pod:\(env.MY_POD_NAME)" | .record.sourcetype = (.tag | gsub("\\\\."; ":")) | .record'
     </filter>
 
+    {{- if .Values.clusterName }}
+    <filter kube.**>
+      @type jq_transformer
+      jq '.record.cluster_name = {{ quote .Values.clusterName }} | .record'
+    </filter>
+    {{- end }}
+
     <match kube.**>
       @type splunk_hec
       protocol {{ or .Values.splunk.hec.protocol .Values.global.splunk.hec.protocol | default "https" }}
