@@ -1,3 +1,5 @@
+clusterName: "MY_CLUSTER"
+
 logLevel: error
 
 rbac:
