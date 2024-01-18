@@ -157,6 +157,12 @@ end;
 {{- end -}}
 
 
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "splunk-kubernetes-logging.serviceAccountName" -}}
+    {{ default (include "splunk-kubernetes-logging.fullname" .) .Values.serviceAccount.name }}
+{{- end -}}
 Create the image name
 */}}
 {{- define "splunk-kubernetes-logging.image" -}}
