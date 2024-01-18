@@ -32,7 +32,6 @@ spec:
 {{ toYaml .Values.extraLabels | indent 8 }}
         {{- end }}
       annotations:
-        opendoor.com/od-secret-enabled: "true"
         checksum/config: {{ include (print $.Template.BasePath "/configMap.yaml") . | sha256sum }}
         {{- if .Values.global.prometheus_enabled }}
         prometheus.io/scrape: 'true'
@@ -42,7 +41,7 @@ spec:
 {{ toYaml .Values.podAnnotations | indent 8 }}
       {{- end }}
     spec:
-      serviceAccountName: splunk-connect-k8s
+      serviceAccountName: {{ template "splunk-kubernetes-logging.serviceAccountName" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}
