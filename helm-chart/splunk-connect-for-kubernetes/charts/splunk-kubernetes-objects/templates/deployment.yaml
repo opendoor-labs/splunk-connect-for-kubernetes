@@ -72,7 +72,10 @@ spec:
               fieldRef:
                 fieldPath: spec.nodeName
           - name: SPLUNK_HEC_TOKEN
-            value: {{ .Values.global.splunk.hec.token }}
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "splunk-kubernetes-objects.secret" . }}
+                key: splunk_hec_token
           {{- if or .Values.splunk.hec.caFile .Values.global.splunk.hec.caFile }}
           - name: SSL_CERT_FILE
             value: /fluentd/etc/splunk/hec_ca_file
@@ -91,6 +94,9 @@ spec:
         - name: checkpoints
           mountPath: /fluentd/var/checkpoints
         {{- end }}
+        - name: secrets
+          mountPath: /fluentd/etc/splunk
+          readOnly: true
         livenessProbe:
           httpGet:
             path: /api/plugins.json
@@ -107,6 +113,9 @@ spec:
       - name: conf-configmap
         configMap:
           name: {{ template "splunk-kubernetes-objects.fullname" . }}
+      - name: secrets
+        secret:
+          secretName: {{ template "splunk-kubernetes-objects.secret" . }}
       {{- if .Values.checkpointFile.volume }}
       - name: checkpoints
 {{ toYaml .Values.checkpointFile.volume | indent 8 }}

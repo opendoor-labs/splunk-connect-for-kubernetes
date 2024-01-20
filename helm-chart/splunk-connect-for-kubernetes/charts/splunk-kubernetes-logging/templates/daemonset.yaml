@@ -80,7 +80,10 @@ spec:
               fieldRef:
                 fieldPath: metadata.name
           - name: SPLUNK_HEC_TOKEN
-            value: {{ .Values.global.splunk.hec.token }}
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "splunk-kubernetes-logging.secret" . }}
+                key: splunk_hec_token
           {{- if or .Values.splunk.hec.caFile .Values.global.splunk.hec.caFile }}
           - name: SSL_CERT_FILE
             value: /fluentd/etc/splunk/hec_ca_file
@@ -104,6 +107,9 @@ spec:
         {{- end }}
         - name: conf-configmap
           mountPath: /fluentd/etc
+        - name: secrets
+          mountPath: /fluentd/etc/splunk
+          readOnly: true
         ports:
         {{- if .Values.global.prometheus_enabled }}
         - containerPort: 24231
@@ -138,6 +144,9 @@ spec:
       - name: conf-configmap
         configMap:
           name: {{ template "splunk-kubernetes-logging.fullname" . }}
+      - name: secrets
+        secret:
+          secretName: {{ template "splunk-kubernetes-logging.secret" . }}
       {{- if .Values.priorityClassName }}
       priorityClassName: {{ .Values.priorityClassName }}
       {{- end }}
