@@ -55,7 +55,9 @@ spec:
       {{ end }}
       containers:
       - name: splunk-fluentd-k8s-objects
+        ### Opendoor Change ###
         command: ["/bin/sh", "-c", "bundle exec fluentd -c /fluentd/etc/fluent.conf"]
+        ### End Opendoor Change ###
         image: {{ template "splunk-kubernetes-objects.image" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:

@@ -1,3 +1,8 @@
+# Opendoor-related CHANGELOG
+
+* 01/18/2024 Add a command entries to helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-logging/templates/daemonset.yaml and helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-objects/templates/deployment.yaml
+
+
 # End of Support
 
 **Important:** The Splunk Connect for Kubernetes will reach End of Support on *January 1, 2024*. After that date, this repository will no longer receive updates from Splunk and will no longer be supported by Splunk. Until then, only critical security fixes and bug fixes will be provided. Splunk recommends migrating to [Splunk OpenTelemetry Collector for Kubernetes](https://github.com/signalfx/splunk-otel-collector-chart). Please refer to this [migration guide](https://github.com/signalfx/splunk-otel-collector-chart/blob/main/docs/migration-from-sck.md) for more details.
