@@ -1,7 +1,7 @@
 # Opendoor-related CHANGELOG
 
 * 01/18/2024
-** Add a command entries to helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-logging/templates/daemonset.yaml and helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-objects/templates/deployment.yaml
+** Add a command entries to [helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-logging/templates/daemonset.yaml](https://github.com/opendoor-labs/splunk-connect-for-kubernetes/blob/master/helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-logging/templates/daemonset.yaml) and [helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-objects/templates/deployment.yaml](https://github.com/opendoor-labs/splunk-connect-for-kubernetes/blob/master/helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-objects/templates/deployment.yaml)
 
 
 # End of Support
