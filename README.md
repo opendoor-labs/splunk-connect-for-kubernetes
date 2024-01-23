@@ -1,7 +1,9 @@
 # Opendoor-related CHANGELOG
 
-* 1.5.4-opendoor.1
-    * Add a command entries to [helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-logging/templates/daemonset.yaml](https://github.com/opendoor-labs/splunk-connect-for-kubernetes/blob/master/helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-logging/templates/daemonset.yaml) and [helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-objects/templates/deployment.yaml](https://github.com/opendoor-labs/splunk-connect-for-kubernetes/blob/master/helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-objects/templates/deployment.yaml)
+* 1.5.5
+    * Add a command entries to [helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-logging/templates/daemonset.yaml](https://github.com/opendoor-labs/splunk-connect-for-kubernetes/blob/53d5b0c1e333ad04c16a556aedd137f15c95a630/helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-logging/templates/daemonset.yaml) and [helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-objects/templates/deployment.yaml](https://github.com/opendoor-labs/splunk-connect-for-kubernetes/blob/53d5b0c1e333ad04c16a556aedd137f15c95a630/helm-chart/splunk-connect-for-kubernetes/charts/splunk-kubernetes-objects/templates/deployment.yaml). These come from the following sources:
+        * We use the `CMD` entry from [splunk/fluentd-hec](https://hub.docker.com/layers/splunk/fluentd-hec/1.3.3/images/sha256-f2fff053dc29ec14795cb20d2af78089fc6a294b932d15e7df1a84c5445ac35b?context=explore) image layers. This image is used by `splunk-kubernetes-logging`.
+        * We use the `CMD` entry from [splunk/kube-objects](https://hub.docker.com/layers/splunk/kube-objects/1.2.3/images/sha256-b7b48797e521f121d8040e4edd4f5be07734ab28da5dfe50a13db7a606d25fb5?context=explore) image layers. This image is used by `splunk-kubernetes-objects`.
 
 
 # End of Support
