@@ -7,7 +7,7 @@ metadata:
   labels:
     app: splunk-kubernetes-metrics
     component: aggregator
-    version: 1.5.5
+    version: 1.5.4-opendoor.1
 spec:
   strategy:
     type: RollingUpdate
@@ -21,7 +21,7 @@ spec:
       labels:
         app: splunk-kubernetes-metrics
         component: aggregator
-        version: 1.5.5
+        version: 1.5.4-opendoor.1
       annotations:
         scheduler.alpha.kubernetes.io/critical-pod: ''
     spec:
